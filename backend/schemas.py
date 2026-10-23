@@ -1,13 +1,13 @@
 from pydantic import BaseModel, ConfigDict
+from datetime import datetime
 
-# Data received when creating a student
+# Student Schemas
 class StudentCreate(BaseModel):
     name: str
     email: str
     department: str
     year: int
 
-# Data returned by the API
 class StudentResponse(BaseModel):
     model_config = ConfigDict(from_attributes=True)
     
@@ -16,3 +16,32 @@ class StudentResponse(BaseModel):
     email: str
     department: str
     year: int
+
+
+# Building Schemas
+class BuildingCreate(BaseModel):
+    building_name: str
+    building_type: str
+    location: str
+
+class BuildingResponse(BaseModel):
+    model_config = ConfigDict(from_attributes=True)
+    
+    building_id: int
+    building_name: str
+    building_type: str
+    location: str
+
+
+# Energy Schemas
+class EnergyCreate(BaseModel):
+    building_id: int
+    power_consumed_kwh: float
+
+class EnergyResponse(BaseModel):
+    model_config = ConfigDict(from_attributes=True)
+    
+    id: int
+    building_id: int
+    power_consumed_kwh: float
+    timestamp: datetime
