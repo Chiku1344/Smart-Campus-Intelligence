@@ -7,7 +7,8 @@ from . import models
 from .schemas import (
     StudentCreate, StudentResponse,
     BuildingCreate, BuildingResponse,
-    EnergyCreate, EnergyResponse
+    EnergyCreate, EnergyResponse,
+    CanteenCreate, CanteenResponse
 )
 
 app = FastAPI(title="Smart Campus Intelligence")
@@ -134,3 +135,23 @@ def create_energy_record(energy: EnergyCreate, db: Session = Depends(get_db)):
 @app.get("/energy", response_model=List[EnergyResponse])
 def get_energy_records(db: Session = Depends(get_db)):
     return db.query(models.EnergyConsumption).all()
+
+
+# ==================== CANTEEN / FOOD WASTE APIs ====================
+
+@app.post("/canteen", response_model=CanteenResponse)
+def create_canteen_record(record: CanteenCreate, db: Session = Depends(get_db)):
+    new_record = models.CanteenRecord(
+        item_name=record.item_name,
+        quantity_prepared=record.quantity_prepared,
+        quantity_wasted=record.quantity_wasted
+    )
+    db.add(new_record)
+    db.commit()
+    db.refresh(new_record)
+    return new_record
+
+
+@app.get("/canteen", response_model=List[CanteenResponse])
+def get_canteen_records(db: Session = Depends(get_db)):
+    return db.query(models.CanteenRecord).all()

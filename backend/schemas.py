@@ -45,3 +45,20 @@ class EnergyResponse(BaseModel):
     building_id: int
     power_consumed_kwh: float
     timestamp: datetime
+    
+    
+from datetime import datetime
+
+class CanteenCreate(BaseModel):
+    item_name: str
+    quantity_prepared: int
+    quantity_wasted: int
+
+class CanteenResponse(BaseModel):
+    model_config = ConfigDict(from_attributes=True)
+    
+    id: int
+    item_name: str
+    quantity_prepared: int
+    quantity_wasted: int
+    date: datetime
