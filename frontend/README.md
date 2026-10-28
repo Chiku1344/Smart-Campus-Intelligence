@@ -1,4 +1,4 @@
-# React + Vite
+<!-- # React + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
 
@@ -13,4 +13,29 @@ The React Compiler is not enabled on this template because of its impact on dev 
 
 ## Expanding the Oxlint configuration
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project. -->
+
+# 🎓 Smart Campus Intelligence System
+
+A Full-Stack Smart Campus Monitoring & Analytics Platform built with **FastAPI**, **SQLAlchemy**, **React**, and **Recharts**.
+
+## 🚀 Key Features
+- **Student Management**: CRUD endpoints to manage student profiles and departments.
+- **Energy Analytics**: Real-time tracking of building energy consumption in kWh.
+- **Canteen Waste Management**: Monitoring food prepared vs. wasted to optimize supply.
+- **Interactive Dashboard**: Live graphs and visual metrics powered by React and Recharts.
+
+## 🛠️ Tech Stack
+- **Backend**: Python, FastAPI, SQLite, SQLAlchemy, Pydantic
+- **Frontend**: React (Vite), JavaScript, Tailwind CSS / CSS, Recharts
+- **Tooling**: Git, GitHub, Uvicorn
+
+## 🔧 How to Run Locally
+
+### 1. Backend Setup
+```powershell
+# Activate virtual environment
+venv\Scripts\activate
+
+# Start FastAPI server
+uvicorn backend.main:app --reload
