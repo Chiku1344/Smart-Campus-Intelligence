@@ -1,7 +1,7 @@
 from pydantic import BaseModel, ConfigDict
 from datetime import datetime
 
-# Student Schemas
+# ==================== STUDENT SCHEMAS ====================
 class StudentCreate(BaseModel):
     name: str
     email: str
@@ -18,7 +18,7 @@ class StudentResponse(BaseModel):
     year: int
 
 
-# Building Schemas
+# ==================== BUILDING SCHEMAS ====================
 class BuildingCreate(BaseModel):
     building_name: str
     building_type: str
@@ -33,7 +33,7 @@ class BuildingResponse(BaseModel):
     location: str
 
 
-# Energy Schemas
+# ==================== ENERGY SCHEMAS ====================
 class EnergyCreate(BaseModel):
     building_id: int
     power_consumed_kwh: float
@@ -47,8 +47,7 @@ class EnergyResponse(BaseModel):
     timestamp: datetime
     
     
-from datetime import datetime
-
+# ==================== CANTEEN SCHEMAS ====================
 class CanteenCreate(BaseModel):
     item_name: str
     quantity_prepared: int

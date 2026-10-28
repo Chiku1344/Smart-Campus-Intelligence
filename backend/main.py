@@ -1,4 +1,5 @@
 from fastapi import FastAPI, Depends, HTTPException
+from fastapi.middleware.cors import CORSMiddleware
 from sqlalchemy.orm import Session
 from typing import List
 
@@ -12,6 +13,15 @@ from .schemas import (
 )
 
 app = FastAPI(title="Smart Campus Intelligence")
+
+# 🟢 CORS Middleware ko yahan upar hi add karna hai (Ek hi baar)
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 # Create database tables automatically
 models.Base.metadata.create_all(bind=engine)
